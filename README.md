@@ -17,7 +17,7 @@ I will expand on each property in future articles so that this one does not get 
 ```
 ## cupids for joyful coding and harnessing agents for the rest
 
-I think that the intermingling of agent harnesses for agile software development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback; or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and sequences of words into a problem & solution domain that meets a need ( in the minimal cognitive distance between what you write, what the AI generates and what the code does ); that is where at any magnification there is a smaller learning task that is similar to the whole collection of software agile development task learned. 
+I think that the intermingling of agent harnesses for agile software development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback; or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the AI generates and what the code does]
 
 The five CUPID properties are:
 
@@ -30,9 +30,11 @@ The five CUPID properties are:
 The sixth property is:
 
 - Self-similar: looks the same at every scale
-  - generally address only scores on a single task for only an agent or for an agent and human expenditure
+  - generally address only scores on a single task for only an agent or for an agent and human expenditure and capability
     - applications to collections of tasks (**benchmark scores**) can be **domain-based** and varying in complexity
+      - that is where at any magnification there is a smaller learning task that is similar to the whole collection of tasks learned.      
     - **task-completion time horizon** is the task duration (measured by human expert completion time) at which an agent is predicted to succeed with a given level of reliability
+ 
 
 
 ## Resources
