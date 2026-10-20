@@ -47,7 +47,7 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
 
 ## cupids for joyful coding and harnessing agents for the rest
 
-I think that the intermingling of agent harnesses for agile software development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback; or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the agent does, what the code does]
+I think that the intermingling of agent harnesses for agile software development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback; or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words [tokenized] into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the agent(s) do, what the language model generates, and what the code does].
 
 The five CUPID properties are:
 
