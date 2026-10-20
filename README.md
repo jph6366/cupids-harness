@@ -35,6 +35,12 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
   "The agents and the models treat the rules and guidelines like Pirates of Caribbean sense"
 - There is a phenomenon called "lost in the middle", as the context builds up in the model the stuff at the beginning and end has more prominence than the stuff in the middle
   "Eventually the tests will slow the down the agents to the point that they are much slower than humans... but as long as you can keep the margin of productivity higher than a human, you're still ahead of the game"
+  "Now I'm in the midst of trying to get multiple agents talking to each other and handing off to each other, so one guy does one thing and the next one reviews it and the next one tests it, and the next one hardens it... the communication overhead is crazy, yet it's still faster by a large token than a human"
+
+"Lets try the AGILE approach, let them do a story or two, maybe I'll get manually involved, and you know sort a few things out, then a few more stories... We may never skip the manual organizing step at the end... I don't know if it's possible"
+- Building the wrong thing is something that you can still do...
+- Spec-driven development
+"the cost of change has plummeted to as close to zero as I think we're ever going to get [and well that's a prediction I'll probably lose but still] the cost of change has gone so far down that why would you do this upfront planning because that's expensive, just fiddle, fiddle, fiddle until it looks right."
 ```
 
 
