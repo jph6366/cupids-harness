@@ -15,6 +15,30 @@ There are likely many of these properties, overlapping and interrelating, and th
 
 I will expand on each property in future articles so that this one does not get any longer, so please forgive me for not being more comprehensive.
 ```
+
+https://www.youtube.com/watch?v=zcLPGC-tvgk&t=464s
+```
+Got my first agent [early grok agent]...
+Well maybe this thing can help me with this project...
+I was cleaning up after it all the time...
+It's interesting because it's fast, but its frustrating because it makes me slow...
+Because it's fast it can do things I cannot...
+These things are fast and they don't care how boring the work is...
+Overall that is my goal, if these things are fast [and they are] and if I can constrain them to do a good job, then I'm not going impose my slowness upon them...
+
+
+
+Agents may be fast and relatively smart, but they are as subject as humans are to messy code, maybe there is a difference in threshold but the threshold is still there. Code can get messy enough that the agents can't deal with it anymore...
+
+**automated checks v.s. steering**
+- Uncle bob's early prompts was describing TDD and CLEAN CODE driven for inserting automated checks instead of steering the agent
+  "The agents and the models treat the rules and guidelines like Pirates of Caribbean sense"
+- There is a phenomenon called "lost in the middle", as the context builds up in the model the stuff at the beginning and end has more prominence than the stuff in the middle
+  "Eventually the tests will slow the down the agents to the point that they are much slower than humans... but as long as you can keep the margin of productivity higher than a human, you're still ahead of the game"
+```
+
+
+
 ## cupids for joyful coding and harnessing agents for the rest
 
 I think that the intermingling of agent harnesses for agile software development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback; or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the agent does, what the code does]
