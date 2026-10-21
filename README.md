@@ -66,6 +66,11 @@ The sixth property is:
   - **identity** (from the Latin, identitas, "sameness")
     - 
 
+
+
+  - **measure** (from the Latin, mēnsūra, "a measure")
+    - 
+
   - generally address only scores on a single task for only an agent or for an agent and human expenditure and capability
     - applications to collections of tasks (**benchmark scores**) can be **domain-based** and varying in complexity
       - that is where at any magnification there is a smaller learning task that is similar to the whole collection of tasks learned.      
