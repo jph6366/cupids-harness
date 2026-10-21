@@ -59,7 +59,13 @@ The five CUPID properties are:
 
 The sixth property is:
 
-- Self-similar: looks the same at every scale
+- **Self-similar**: looks the same at every scale
+    
+  - **affinity** (from the Latin, affinis, "connected with") 
+    - 
+  - **identity** (from the Latin, identitas, "sameness")
+    - 
+
   - generally address only scores on a single task for only an agent or for an agent and human expenditure and capability
     - applications to collections of tasks (**benchmark scores**) can be **domain-based** and varying in complexity
       - that is where at any magnification there is a smaller learning task that is similar to the whole collection of tasks learned.      
