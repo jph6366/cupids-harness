@@ -79,9 +79,12 @@ The sixth property is:
 
 
 ## Resources
-
+- https://www.anthropic.com/research/building-effective-agents
 - https://github.com/RyanAlberts/best-of-Agent-Harnesses
 - https://github.com/wannabeyourfriend/awesome-harness-evolution
+
+
+https://www.anthropic.com/research/building-effective-agents
 
 ### Measuring AI Agents
 - [Research note: Metrics of Agent Ability](https://metr.org/notes/2026-07-24-metrics-of-model-ability/)
@@ -94,6 +97,7 @@ The sixth property is:
 ### Agile Software Development
 
 - [Uncle Bob Martin on Clean Software, Craftsperson, Origins of SOLID, DDD, & Software Ethics](https://soundcloud.com/infoq-channel/uncle-bob-martin-software-craftsperson-solid-ddd-software-ethics)
+- [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793)
 
 ### Harness Engineering
 
