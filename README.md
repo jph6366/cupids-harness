@@ -160,7 +160,7 @@ The sixth property is:
     1. Give agents a specific set of tools rather than letting them generate or execute anything
         - smaller, more focused tools are usually easier to control and maintain.
         **small and composable**
-    [!constraints](gentconstraints.png)
+    ![](agentconstraints.png)
     - Agents/LLM orchestrate
     - tools produce facts
     - top-level agent plays a coordinating role only
