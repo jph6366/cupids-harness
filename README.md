@@ -94,6 +94,7 @@ The sixth property is:
 
     1. an LLM agent runs tools in a loop to achieve a goal
     2. an agent is a decision-making layer that takes a goal, develops a plan, invokes tools, and adapts based on results 
+    3. a model plus a harness
 
 **Skills**:
 
@@ -107,7 +108,7 @@ The sixth property is:
 
     1. discrete instructions that the agent issues to tools or sub-agents
 
-**Orchestration**:
+**(Multi-Agent) Orchestration**:
 
     1. how you coordinate multiple agents, route tasks, and enforce policies across the workflow
 
@@ -122,8 +123,32 @@ The sixth property is:
        - the model thinks, the harness decides what that thinking is allowed to touch.
     2. the complete infrastructure that wraps around an LLM to make it an functional agent
        - the model provides intelligence; the harness provides peripherals, memory, and boundaries
+    3. the runtime that couples an LLM to the world through a loop, tools, context management, safety controls, orchestration, and extension surfaces.
+    4. the layer that wraps language model and turns it into an agent able to act on a repository
 
 
+## Harnesses
+
+- Claude Code (Anthropic)
+- Codex CLI (OpenAI)
+- Gemini CLI (Google)
+- Mistral Vibe (Mistral)
+- OpenHands
+- Aider
+- Mini-SWE-Agent
+- Hermes (Nous Research)
+- Pi
+- OpenCode
+- OpenClaw
+
+### Meta-Harness
+
+- Omnigent
+
+### Eval Harness
+
+- [AgentBench: Evaluating LLMs as Agents](https://arxiv.org/abs/2308.03688)
+- [Terminal-Bench](https://www.tbench.ai/news/announcement)
 
 ## Resources
 
@@ -140,7 +165,7 @@ The sixth property is:
 - https://arxiv.org/abs/2210.03629
 - https://arxiv.org/pdf/2310.10501
 
-
+    
 ### Frontier AI Model Evaluation Research
 
 - [Research note: Metrics of Agent Ability](https://metr.org/notes/2026-07-24-metrics-of-model-ability/)
@@ -211,6 +236,9 @@ The sixth property is:
 
 
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793)
+
+
+- [Inside the Scaffold: A Source-Code Taxonomy of Coding Agent Architectures](https://arxiv.org/pdf/2604.03515)
 
 #### Uncle Bob
 
@@ -332,6 +360,152 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
 
 
 - [Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents](https://arxiv.org/pdf/2609.00006)
+  - **Harness Engineering** is the design and evolution of that runtime that couples the LLM through a loop,  tools, context management, safety controls, orchestration, and extension surfaces
+
+    
+    _the harness has stopped being a tool and become a platform_
+    
+    
+    $$Agent = Model + Harness$$
+    
+    - automate harness evolution
+    - optimize harnesses against benchmarks
+    - recast code itself as the harness substrate
+    
+    _the layer that wraps language model and turns it into an agent able to act on a repository_
+    
+    - "A harness is not a scaffold--quite"
+      - **scaffold** names the structural code (the loop, the registries)
+      - and **harness** names the shipped runtime artifact that embeds it
+      
+      e.g. *mini-swe-agent* scaffold is 100 lines of Python
+           *Claude Code's* harness is a product with a terminal UI, a permission system, and a plugin ecosystem
+           
+    - "A harness is not an agentic framework"
+      - a **framework** is a library the develop imports to build an agent
+      - a **harness** is a runtime the developer works inside of
+    
+    - "A harness is not an evaluation harness"
+      e.g. the *swe-bench* **harness** wraps an agent to run it against tasks;
+          - an **agent harness** wraps a model to make it act
+          - same word, opposite direction of wrapping
+          
+    - "A harness is not an orchestrator"
+      - an **orchestrator** coordinates one or more harnesses from above and implements no editing loop of its own
+        e.g. *omnigent* orchestrates eleven vendor harnesses and implements no editing loop of its own
+            - its provides evaluating harnesses instead of evaluating a single harness
+    
+  - **minimal harness formalization**: how small each subsystem can shrink
+  
+    1. **agent loop**: alternates inference with action execution; owns stop conditions and failure recovery
+       e.g. a linear `while` loop over one `bash` tool
+    2. **language model integration**: speaks provider protocols; assembles the prompt ; manages caching; thinking, routing
+       e.g. one `litellm` call, one `jinja` template
+    3. **tools & actions**: defines and executes what the agent can do, file editing above all
+       e.g. `bash` only
+    4. **memory & context**:  rations the context window; persists knowledge across turns and sessions
+       e.g. `unbounded linear history`
+    5. **safety & permissions**: decides what runs, what asks, what is forbidden; isolates execution
+       e.g. `cost and step limits`
+    6. **orchestration**: spawns and coordinates sub-agents; connects to other agents
+       e.g. `single-agent by design`
+    7. **extensibility**: lets users and ecosystems add capability: config, hooks, skills, plugins, MCP
+       e.g. structural typing (python protocols)
+
+  - **maximal harness formalization**: shows where a decade of engineering headroom lies in each subsystem
+  
+    1. agent loop
+       e.g. event-source conversion over a persistent event log, with parallel action batches
+    2. language model integration
+       e.g. shipped with 5 owned transports and 29 provider profiles; server-delivered model catalog
+    3. tools & actions
+       e.g. 43 typed tools with deferred loading; tool calls as V8-executed code
+    4. memory & context
+       e.g. agent-maintained cross-session memory pipeline; graph-based context distillation
+    5. safety & permissions
+       e.g. approval reviewer + three-platform OS sandbox
+    6. orchestration
+       e.g. recursive composition; cross-vendor coordination
+    7. extensibility
+       e.g. everything-is-an-extension runtime; marketplace-distributed plugins
+  
+  
+  _two cross-cutting surfaces sit alongside the seven: the interface layer and the session substrate_
+    1. *interface layer* through which humans and programs drive the harness
+       - TUI, CLI flags, IDE Protocol, HTTP server, SDK
+    2. *session substrate* that several subsystems share
+       - transcripts, persistence, resume/fork
+       
+       
+   - **LLM-powered code agents**
+     - SWE-Agent
+       - provide LLMs with file viewing and editing tools
+     - CodeAct
+       - unifying agent actions into executable code
+     - ReAct
+       - reasoning-action loop that underpins most current agent architectures
+     - AutoCodeRover
+       - replaces text-based search with AST-aware retrieval and spectrum-based fault localization
+     - MASAI
+       - decomposes the issue-resolution pipeline into modular sub-agents
+         - and reports cost-aware results on SWE-Bench Lite
+     - MAGIS & CodeR
+       - formalize role-based multi-agent coordination for issue resolution
+         e.g. Manager/Custodian/Developer/QA (MAGIS); explicit task graphs (CodeR)
+     - Lingma SWE-GPT
+       - trains a base model jointly with the SE process loop, an instance of the model-agent co-design
+     - SWE-Search
+       - layers Monte Carlo tree search over agent trajectories
+         - see also Tree of Thoughts and LATS, with Plan-and-Solve as the simpler precursor
+         - and Diversity-Empowers-Intelligence ensembles heterogeneous agents under a meta-policy
+     - Agentless
+       - reports that a fixed localize/repair/validate pipeline is competitive with agent loops
+         - discussing whether agent complexity is necessary
+     - OpenHands
+       - automated harness engineering, which automatically evolve agent harnesses (tools, middleware, memory, sub-agent configuration) using observability-driven feedback
+         - starting from 'bash-only' seed and the evolved harness transfers across model families
+       - **component-level ablation** provides quantitative evidence for the architectural emphases we arrive at independently through source-code analysis: tools, middleware, and long-term memory carry the improvement, while the system prompt alone does not
+       
+   - **concurrent source-code taxonomies**
+     - Inside the Scaffold
+       - source-code taxonomy of 13 open source coding agent scaffolds
+         - 12 dimensions in 3 layers
+           - control architecture, tool/environment interface, resource management
+       _most agents compose loop primitives rather than implementing a single one_
+          - ReAct, generate-test-repair, plan-execute, retry, tree search
+          
+   - **multi-agent systems for swe**
+     - MetaGPT
+       - assigns specialized roles (product manager, architect, engineer) to different agents
+     - ChatDev
+       - organizes a role-playing development pipeline around chat-chain communication
+     - AutoGen
+       - provides a framework for multi-agent conversations
+     - Magnetic-One
+       - implements an orchestrator pattern with specialized sub-agents
+     - MAGIS and CodeR
+       - pair role decompositions with task graphs
+     - Chain-of-Agents
+       - sequences sub-agents over long inputs
+       
+   - **tool use in language models**
+     - Toolformer
+       - LLMs can learn to use external tools
+     - Gorilla
+       - LLMs can generate accurate API calls when provided with documentation
+     - ToolLLM
+       - sacled tool-use evaluation to 16000+ real-world APIs
+     - AnyTool
+       - hiearchical tool routing for large API surfaces
+     - MCP
+       - proposes a standard interface for connecting LLMs to external tools and data sources
+       - emerged as a cross-system extensibility standard
+   - **vendor-authored engineering guidance**
+     - a complementary thread to the academic surveys is engineering guidance published directly by major LLM vendors
+     
+   - **2026 Harness Landscape**
+   
+
 - [What makes a harness a harness: necessary and sufficient conditions for an agent harness](https://arxiv.org/pdf/2606.10106)
 - [Better Harnesses, Smaller Models: Building 90% Cheaper Agents via Automated Harness Adaptation](https://arxiv.org/pdf/2607.08938)
 
