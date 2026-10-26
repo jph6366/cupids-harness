@@ -43,7 +43,9 @@ I will expand on each property in future articles so that this one does not get 
     
 ## cupids for joyful coding and harnessing agents for the rest
 
-I think that the intermingling of agent harnesses for agile software development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback; or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words [tokenized] into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the agent(s) do, what the language model generates, and what the code does].
+I think that the intermingling of agent harnesses for rapid requirements & development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback; or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words [tokenized] into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the language model transduces, what decisions agent(s) make, and and the task-completion].
+
+_James Martin's method of rapid development: In general, RAD approaches to software development put less emphasis on planning and more emphasis on an adaptive process. Prototypes are often used in addition to or sometimes even instead of design specifications_
 
 The five CUPID properties are:
 
