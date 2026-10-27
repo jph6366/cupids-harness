@@ -40,12 +40,13 @@ I will expand on each property in future articles so that this one does not get 
 - Hyrum's Law
   - "With a sufficient number of users of an API, it does not matter what you promise in the contract:
     all observable behaviors of your system will be depended on by somebody."
-    
-## cupids for joyful coding and harnessing agents for the rest
-
-I think that the intermingling of agent harnesses for rapid planning & application development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback (or it's own loop); or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words [tokenized] into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the language model transduces, what decisions agent(s) make, and and the task-completion]. Ideally, not only should it be enjoyable to use but also I want to love using it and avoid abusing it [in a measurable and realistic manner].
 
 _James Martin's method of rapid development: In general, RAD approaches to software development put less emphasis on planning and more emphasis on an adaptive process. Prototypes are often used in addition to or sometimes even instead of design specifications_
+
+## cupids for joyful coding and harnessing agents for the rest
+
+I think that the intermingling of agent harnesses for rapid planning & application development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback (or it's own loop); or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words [tokenized] into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the language model transduces, what decisions agent(s) make, and the task-completion]. Ideally, not only should it be enjoyable to use but also I want to love using it and avoid abusing it [in a measurable and realistic manner].
+
 
 The five CUPID properties are:
 
@@ -60,7 +61,7 @@ The sixth property is:
 - **self-similar**: looks the same at every scale
     - **self-improving**
         - 
-    - **self-teaching**
+    - **self-taught**
         - 
     - **self-modifyiong**
         - 
@@ -71,7 +72,7 @@ The sixth property is:
      - **self-replicating**
         - 
      - **self-aware**
-        -        
+        - 
   - **affinity** (from the Latin, affinis, "connected with") 
     - 
   - **identity** (from the Latin, identitas, "sameness")
@@ -251,8 +252,6 @@ It's interesting because it's fast, but its frustrating because it makes me slow
 Because it's fast it can do things I cannot...
 These things are fast and they don't care how boring the work is...
 Overall that is my goal, if these things are fast [and they are] and if I can constrain them to do a good job, then I'm not going impose my slowness upon them...
-
-
 
 Agents may be fast and relatively smart, but they are as subject as humans are to messy code, maybe there is a difference in threshold but the threshold is still there. Code can get messy enough that the agents can't deal with it anymore...
 
@@ -504,7 +503,205 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
      - a complementary thread to the academic surveys is engineering guidance published directly by major LLM vendors
      
    - **2026 Harness Landscape**
+       - "every vendor now ships a harness and the harness is no longer a greenfield"
+         - Gemini is transitioning towards Antigravity CLI
+         - Amazon folds into Kiro
+         - X shipped Grok and acquired Cursor
+         - That leaves Codex, Gemini CLI, Mistral Vibe open to the public
+         - opencode and hermes grow
+         - pi is minimal-core countertrend
+         - Claw Code reimplimented claude code in python and rust
+         - Many other forks in the same regard tieing open wieght model releases to their CLIs
+         - aider entered de-facto community maintenance mode
+       - "an orchestration layer that treats entire harnesses as interchangeable components behind a common API"
+         - "adding cross-harness policies, a uniform OS sandbox, and shareable multi-device sessions"
+         - databricks opensourced omnigent a meta-harness
+         
+  - **openclaw as an outlier**
+    - its a personal AI assistant gateway but it delegates coding tasks to dedicated SWE agents through plugins
+    
+  - **omnigent as a meta-harness**
+    - its an orchestration layer above harnesses
+    - it wraps harnesses and custom agent configurations behind an API
+      - adding cross-harnessing
+      - uniform OS sandbox
+      - shareable multi-device sessions
+
+      
+      
+  1. Agent Loop Design
+  
+      _Design loops that prompt your agents_
+  
+     _Loop primitives (ReAct, generate-test-repair, plan-execute, multi-attempt retry)_
+     
+     _function as composable building blocks that agents layer in different combinations, not as mutually exclusive types_
+  
+     - *iterative action-observation*
+     
+     - *reflection-augmented*
+     
+     - *coordinator-worker*
+     
+     
+     ![](loopparadigms.png)
+    
+ 2. LLM integration and Model-Agent Co-design
+ 
+     - *provider abstraction spectrum*
+     
+       1. single-provider tight coupling
+       2. provider-first with generic fallback
+       3. multi-provider via abstraction layer
+       4. multi-provider via owned transports
+       5. hybrid plugin-based
+     
+     - *prompt engineering architectures*
+     
+       1. capability gated snippets with hierarchical memory
+       2. per-agent markdown prompts
+       3. per-model prompts as server-delivered data
+       4. prompt registry with cache tiers
+       5. three-tier assembly with bit-perfect prefixes
+       6. one small builder, co-varying with the toolset
+       7. a model-family prompt matrix
+       8. polymorphic prompts
+       9. one-shot templates
+       
+     - *prompt content and rhetorical style*
+     
+       1. identity and persona
+       2. verbosity control
+       3. banned phrases and forbidden surface forms
+       4. anti-gold-plating directives
+       5. read-before-edit and verify-before-claim
+       6. git commit policy: a convergence that dissolved
+       7. emphasis markers
+       8. tool-use philosophy
+       9. what is conspicuously absent
+       
+     - *streaming and response processing*
+     
+       *Claude Code*: SSE with fine-grained events
+           - supports extended thinking via thinking blocks with configurable budget_tokens
+           
+       *Codex*: WebSocket + SSE fallback
+           - ResponseItem events parsed from JSON-RPC
+           - Connection prewarm with generate=false
+             - Turn state maintained via x-codex-turn-state header
+         
+       *Gemini CLI*: @google/genai SDK chat.sendMessageStream() with a four-attempt mid-stream retry
+       
+       *Mistral Vibe*: Mistral SDK stream_async() aggregates LLMChunk blocks
+           - ThinkChunk blocks are routed into separate reasoning_content field
+           - Aggregated usage stats are produced across the stream
+           
+       *Aider*: Token-level streaming with mdstream for rich terminal rendering.
+           - Retry loop with exponential backoff; handles FinishReasonLength by resuming with assistant prefill
+           
+       *Mini-SWE-Agent*: Full response (no streaming), simplest approach; relies on model's native completion
+       
+       *OpenHands*: SSE via LiteLLM wrapper, now with first-class streaming plus an OpenAI Responses path
+           - an LLM.stream field and token deltas forwarded through on_token callbacks
+           - Support prompt caching markers for Anthropic models
+           
+       *Hermes*: five owned transport implementations: a ~23-value FailoverReason enum drives classified recovery
+      
+      *Pi*: nine wire-protocol implementations with a partial-json salvage parser for streamed tool arguments
+          - paired with truncation guard, since salvaged arguments can validate while incomplete
+          
+      *OpenCode*: Vercel AI SDK streamText owns dispatch: token-granular part deltas are persisted 
+          - and re-served over SSE by the embedded server,
+          - so every client (TUI, web, IDE) replays the same stream
+      
+      *OpenClaw*: ACP delta events for text, thought, and tool calls
+          - provider-specific transport streams handle the underlying SSE/WebSocket layer
+          
+          
+     - *advanced API features*
+       - *claude code*'s extended thinking integration exposes a budget_tokens parameter
+         - that controls how much internal reasoning the model performs before responding
+         - while LiteLLM does pass through Anthropic-specific conditional code in any multi-provider design
+       - *codex*'s reasoning efforts enum spans minimal/low/medium/high/xhigh,
+         - extended in mid-2026 with max and ultra--and ultra is not just more reasoning
+         - the model catalog describes it as maximum reasoning with automatic sub-agent task delegation,
+         - an effort level that chagnes orchestration behavior, unique in the corpus
+       - *mistral vibe*'s per-model thinking field now spans five levels (off/low/medium/high/max)
+         - mapped into Mistral reasoning_effort enum
+         - and Pi normalizes the whole landscape behind a unified seven-level scale
+           - translated through ten per-API thinkingFormat dialects
+       - *codex*'s implements prompt caching via a prompt_cache key derived from the session's ThreadId
+       - *aider*'s vision support warrants a note:
+       
+       
+       
+   3. Tool & Action Systems
    
+     ![](toolcount.png)
+     - *tool interface architecture* 
+        - Mini-SWE-Agent sends everything through a single shell call 
+        - (subprocess.Popen(shell=True)
+            - wrapped only to kill the process group on timeout)—to rich typed contracts 
+        - Claude Code’s 43 tools
+        - each declare validation, permission checking, concurrency safety, and UI rendering
+            - as separate interface concerns. 
+            
+     - *deferred tool loading*
+     
+     - *file-editing strategies*
+       - "File editing is the core action for SWE agents."
+       
+     
+     - *execution and sandboxing*
+     
+  4. Memory and Context Management
+  
+      - **threshold-triggered LLM compaction**: a de facto standard for production-grade context management,
+        - though each newcomer hybridizes it with traits of the other strategies
+          - (iterative summary merging, pluggable engines, session-tree substrates)
+          
+        e.g.
+          Claude Code’s compaction triggers when the running token estimate enters a buffer
+              - below the model’s effective context window 
+              (AUTOCOMPACT_BUFFER_TOKENS = 13 000, with an env-overridable percent threshold for testing). 
+              - The process: 
+                1. strip images from messages (replace with [image] markers)
+                2. group messages by API round, 
+                3. invoke the LLM to generate a conversation summary,
+                4. create a SystemCompactBoundaryMessage separating pre-compaction history from the summary.
+              -  Post-compaction cleanup restores up to 5 files (POST_COMPACT_TOKEN_BUDGET = 50 000)
+                 - and truncates skills to a per-skill 25 000-token budget
+
+        - **persistent memory pipelines**
+          - 
+           
+          e.g.
+              - Claude Code persists per-project memory directories of Markdown facts; 
+              - Pi and Mini-SWE-Agent deliberately persist nothing beyond the session substrate
+              
+      - **repository context**
+        - Beyond conversation history, agents must manage code context
+        
+        
+    5. Safety and Permission Models
+    
+    
+     ![](permsys.png)
+          
+    
+    Mini-SWE-Agent implements only resource limits as safety mechanisms—step_limit,
+cost_limit, and (added in the v2.4 line) a wall-clock limit and a consecutive-format-error cap,
+plus an opt-in interactive confirm mode—sufficient for benchmark evaluation but inadequate for
+production use.
+
+
+    6. Multi-agent orchestration
+    
+    
+    ![](agentorch.png)
+
+
+    7. Extensibility Mechanisms
 
 - [What makes a harness a harness: necessary and sufficient conditions for an agent harness](https://arxiv.org/pdf/2606.10106)
 - [Better Harnesses, Smaller Models: Building 90% Cheaper Agents via Automated Harness Adaptation](https://arxiv.org/pdf/2607.08938)
@@ -539,3 +736,4 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
 - GISAgentBench
 
 
+        
