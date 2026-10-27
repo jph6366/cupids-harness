@@ -128,6 +128,14 @@ The sixth property is:
     4. the layer that wraps language model and turns it into an agent able to act on a repository
 
 
+
+## Prompts
+
+### Prompt Engineering
+
+### [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/pdf/2307.03172)
+
+
 ## Harnesses
 
 - Claude Code (Anthropic)
@@ -151,6 +159,10 @@ The sixth property is:
 - [AgentBench: Evaluating LLMs as Agents](https://arxiv.org/abs/2308.03688)
 - [Terminal-Bench](https://www.tbench.ai/news/announcement)
 
+### Harness Engineering
+
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)
+
 ## Resources
 
 - [Towards Long-Horizon Agents: A Survey](https://openreview.net/pdf?id=HyhfhlbWGh)
@@ -161,13 +173,11 @@ The sixth property is:
 
 - https://arxiv.org/abs/2005.14165
 - https://arxiv.org/abs/2201.11903
-- https://arxiv.org/pdf/2307.03172
 - https://arxiv.org/abs/2205.11916
-- https://arxiv.org/abs/2210.03629
-- https://arxiv.org/pdf/2310.10501
+
 
     
-### Frontier AI Model Evaluation Research
+### Frontier AI Model Evaluation and Threat Research
 
 - [Research note: Metrics of Agent Ability](https://metr.org/notes/2026-07-24-metrics-of-model-ability/)
 - [Task-Completion Time Horizons of Frontier AI Models](https://metr.org/time-horizons/)
@@ -176,6 +186,10 @@ The sixth property is:
 - [Task Substitution and Uplift](https://metr.org/blog/2026-05-08-task-substitution-and-uplift/)
 - [How Does Time Horizon Vary Across Domains?](https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/)
 - [CoT May Be Highly Informative Despite “Unfaithfulness”](https://metr.org/blog/2025-08-08-cot-may-be-highly-informative-despite-unfaithfulness/)
+- [NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications with Programmable Rails](https://arxiv.org/pdf/2310.10501)
+
+
+
 
 ### Agent Development Patterns
 
