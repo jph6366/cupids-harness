@@ -222,11 +222,10 @@ The sixth property is:
         - there are tradeoffs, of course, rather than trying to build agents that plan for everything
 
 
+#### [When Does Restricting a Coding Agent to execute_code Help? A Regime × Agent-Design Ablation](https://arxiv.org/abs/2607.10569)
 
-- [When Does Restricting a Coding Agent to execute_code Help? A Regime × Agent-Design Ablation](https://arxiv.org/abs/2607.10569)
 
-
-- [Small Language Models for Efficient Agentic Tool Calling: Outperforming Large Models with Targeted Fine-tuning](https://arxiv.org/abs/2512.15943)
+#### [Small Language Models for Efficient Agentic Tool Calling: Outperforming Large Models with Targeted Fine-tuning](https://arxiv.org/abs/2512.15943)
 
 
 
@@ -274,7 +273,7 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
 
 #### Andinet's Tech blog
 
-- [Agentic AI Is Coming to the SaMD Lifecycle](https://blog.andinet.dev/agentic-ai-is-coming-to-the-samd-lifecycle)
+##### [Agentic AI Is Coming to the SaMD Lifecycle](https://blog.andinet.dev/agentic-ai-is-coming-to-the-samd-lifecycle)
   - Designing, building, and shipping **Software as a Medical Device (SaMD)** must comply with some of the most demanding regulatory frameworks in any industry
     - every step of SaMD demands rigorous documentation, traceabilty, and quality assurance
   - Agentic AI, a class of autnomous systems that answers questions, plans, executes, and verifies multi-step tasks across complex workflows
@@ -339,10 +338,11 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
           
  
 
-- [The Old Rules Still Apply: Why Software Engineering Discipline Matters More in AI Engineering](https://blog.andinet.dev/the-old-rules-still-apply-why-software-engineering-discipline-matters-more-in-ai-engineering)
+##### [The Old Rules Still Apply: Why Software Engineering Discipline Matters More in AI Engineering](https://blog.andinet.dev/the-old-rules-still-apply-why-software-engineering-discipline-matters-more-in-ai-engineering)
   - "Why write tests, specs, or design documents when a model can generate a working feature in minutes?"
     - "When implementation becomes cheap, the parts that were never about typing code become the whole job."
-      - "Knowing what to build, and knowing whether what you built actually works, matter more now than they ever did"
+      - "Knowing what to build, and knowing whether what you built actually works, ..."
+        - "... matter more now than they ever did"
      
 
 
@@ -358,7 +358,7 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
 
 
 
-- [Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents](https://arxiv.org/pdf/2609.00006)
+#### [Harness Engineering: Anatomy, Architecture, and Evolution of Coding Agents](https://arxiv.org/pdf/2609.00006)
   - **Harness Engineering** is the design and evolution of that runtime that couples the LLM through a loop,  tools, context management, safety controls, orchestration, and extension surfaces
 
     
@@ -703,8 +703,8 @@ production use.
 
     7. Extensibility Mechanisms
 
-- [What makes a harness a harness: necessary and sufficient conditions for an agent harness](https://arxiv.org/pdf/2606.10106)
-- [Better Harnesses, Smaller Models: Building 90% Cheaper Agents via Automated Harness Adaptation](https://arxiv.org/pdf/2607.08938)
+#### [What makes a harness a harness: necessary and sufficient conditions for an agent harness](https://arxiv.org/pdf/2606.10106)
+#### [Better Harnesses, Smaller Models: Building 90% Cheaper Agents via Automated Harness Adaptation](https://arxiv.org/pdf/2607.08938)
 
 
 ### Auto Research
