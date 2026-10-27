@@ -171,10 +171,6 @@ The sixth property is:
 - https://github.com/wannabeyourfriend/awesome-harness-evolution
 - https://www.anthropic.com/research/building-effective-agents
 
-- https://arxiv.org/abs/2005.14165
-- https://arxiv.org/abs/2201.11903
-- https://arxiv.org/abs/2205.11916
-
 
     
 ### Frontier AI Model Evaluation and Threat Research
@@ -716,6 +712,21 @@ production use.
 
 
     7. Extensibility Mechanisms
+    
+    
+     - *plugin architecture*
+     
+     - *protocol-based interfaces*
+     
+     - *configuration-driven extensibility*
+     
+     - *model context protocol*
+     
+     - *skills as an emerging capability-bundle standard*
+     
+     
+     
+        
 
 #### [What makes a harness a harness: necessary and sufficient conditions for an agent harness](https://arxiv.org/pdf/2606.10106)
 #### [Better Harnesses, Smaller Models: Building 90% Cheaper Agents via Automated Harness Adaptation](https://arxiv.org/pdf/2607.08938)
