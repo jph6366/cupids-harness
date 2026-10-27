@@ -170,9 +170,11 @@ The sixth property is:
 - https://github.com/RyanAlberts/best-of-Agent-Harnesses
 - https://github.com/wannabeyourfriend/awesome-harness-evolution
 - https://www.anthropic.com/research/building-effective-agents
+- [On the Opportunities and Risks of Foundation Models](https://arxiv.org/pdf/2108.07258)
+
+
 - [Memory in the Age of AI Agents: A Survey](https://arxiv.org/pdf/2512.13564)
 
-    
 ### Frontier AI Model Evaluation and Threat Research
 
 - [Research note: Metrics of Agent Ability](https://metr.org/notes/2026-07-24-metrics-of-model-ability/)
