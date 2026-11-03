@@ -133,7 +133,9 @@ The sixth property is:
 
 ### Prompt Engineering
 
-### [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/pdf/2307.03172)
+#### [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)
+
+#### [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/pdf/2307.03172)
 
 
 ## Harnesses
@@ -161,7 +163,8 @@ The sixth property is:
 
 ### Harness Engineering
 
-- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)
+- [Natural-Language Agent Harnesses](https://arxiv.org/pdf/2603.25723)
+
 
 ## Resources
 
