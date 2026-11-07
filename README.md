@@ -780,7 +780,8 @@ production use.
        - choose an effective next action
        - verify its plan after new observations
     
-    _Harness adaptation strategies_ grouped by the harness component they modify
+**Agent Adaptation Strategies**
+    - adaptations grouped by the harness component they modify
         - context adaptations change what information is presented to the model
         - tool adaptations change the actions available to the model
         - agent loop adaptations change the control logic around the model inference
@@ -835,11 +836,51 @@ production use.
            - orchestrating agents increase inference and agent management
                
              
+**SLM Harness Adaptation**
+    - mitigating SLM shortcomings with harness engineering
+      - note that adapting is challenging in such a large design space
+      - the optimal adaptation requires trial and error
+      
+    - "harness design should also be automated as a search problem"
+      - [driven by data and evaluation rather than manual trial and error]
+      - in contrast to human-knowledge-based methods falling short of general methods
+        - leveraging search and learning
+        
+    **proposal includes automated harness optimzation and a meta-agent powered harness optimizer**
+        - that automates search for identifying (effective) agent harnesses
+        
+    1. instantiate a search space given an  `agent framework` for constructing [domain] agents
+       - constrain the agent to a concrete set of editable components:
+         - `contexts` are task instructions, demonstrations, skills, amd dynamic contexts on-demand
+         - `tools` are primitive tools (file editing, bash, browser), custom tools, custom scripts
+         - `hooks` are custom scripts that trigger on some tool or action event
+         - `context management` are external file systems and context compaction utilities
+         - `sub-agents` are custom agents with dedicated components
+         
+    2. develop an optimization loop that samples a harness and evaluates it
+       - diagnoses failures and proposes new harnesses
+         - and evaluates the harnesses
+         
+        a. sample and eval a harness
+            - a pool of tried harnesses and validation scores
+            
+        b. diagnose failures and propose new harness
+            - change harness components
+              - e.g. add a tool, or reusable skill
+          _context for decision-making_
+           - task trajectories
+             - annotated with outcome signals
+           - current harness
+           - search memory
+             - summary of past proposals
+           - design-space documentation
+             - specs that ref available harness components
+         c. validate and save
+             - evaluate it on the same sampled batch of training instances
+               - observe if there improvement
+             - if improved then its added to the pool after a full eval is ran on the validation set
 
 
-
-
-**Agent Adaptation Strategies**
 
 ### Auto Research
 
