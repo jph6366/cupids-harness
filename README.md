@@ -45,7 +45,9 @@ _James Martin's method of rapid development: In general, RAD approaches to softw
 
 ## cupids for joyful coding and harnessing agents for the rest
 
-I think that the intermingling of agent harnesses for rapid planning & application development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback (or it's own loop); or simply a useful pair programmer that is aware of the context and functionalities made available to them. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words [tokenized] into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the language model transduces, what decisions agent(s) make, and the task-completion]. Ideally, not only should it be enjoyable to use but also I want to love using it and avoid abusing it [in a measurable and realistic manner].
+♡I think that the intermingling of agent harnesses for rapid planning & application development is rapidly being built into different directions; one being fully automated, orchestrated coding agents; another leaning towards vibe-coding with human-feedback (or it's own loop); or simply a useful pair programmer that is aware of the context and functionalities made available to them♡. I believe that there is joy to be had to work with AI agents learning your intentions and transducing sequences of words [tokenized] into a problem & solution domains that meets a need [in the minimal cognitive distance between what you write, what the language model transduces, what decisions agent(s) make, and the task-completion]. Ideally, not only should it be enjoyable to use but also I want to love using it and avoid abusing it [in a measurable and realistic manner].
+
+♡ _Agentic systems also differ in degree of autonomy. A workflow-automation system follows a largely predefined sequence; an adaptive agent changes intermediate steps in response to execution feedback; and a more autonomous agent plans, selects tools, verifies intermediate results, and retries or revises its strategy with limited human intervention._
 
 
 The five CUPID properties are:
@@ -133,7 +135,9 @@ The sixth property is:
 
 ### Prompt Engineering
 
-### [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/pdf/2307.03172)
+#### [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)
+
+#### [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/pdf/2307.03172)
 
 
 ## Harnesses
@@ -161,7 +165,8 @@ The sixth property is:
 
 ### Harness Engineering
 
-- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)
+- [Natural-Language Agent Harnesses](https://arxiv.org/pdf/2603.25723)
+
 
 ## Resources
 
@@ -173,7 +178,10 @@ The sixth property is:
 - [On the Opportunities and Risks of Foundation Models](https://arxiv.org/pdf/2108.07258)
 - [Memory in the Age of AI Agents: A Survey](https://arxiv.org/pdf/2512.13564)
 - [A Rosetta Stone for AI Benchmarks](https://arxiv.org/pdf/2512.00193)
-
+- [Multitask Learning](https://people.eecs.berkeley.edu/~russell/classes/cs294/f05/papers/caruana-1997.pdf)
+- [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+- [Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165)
+- [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/pdf/2402.03300)
 
 ### Frontier AI Model Evaluation and Threat Research
 
