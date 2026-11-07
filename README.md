@@ -172,6 +172,8 @@ The sixth property is:
 - https://www.anthropic.com/research/building-effective-agents
 - [On the Opportunities and Risks of Foundation Models](https://arxiv.org/pdf/2108.07258)
 - [Memory in the Age of AI Agents: A Survey](https://arxiv.org/pdf/2512.13564)
+- [A Rosetta Stone for AI Benchmarks](https://arxiv.org/pdf/2512.00193)
+
 
 ### Frontier AI Model Evaluation and Threat Research
 
@@ -730,8 +732,106 @@ production use.
         
 
 #### [What makes a harness a harness: necessary and sufficient conditions for an agent harness](https://arxiv.org/pdf/2606.10106)
+
+
 #### [Better Harnesses, Smaller Models: Building 90% Cheaper Agents via Automated Harness Adaptation](https://arxiv.org/pdf/2607.08938)
 
+- Small language models (SLMs) offer cheap alternative to Large language models (LLMs)
+  - but are not designed for frontier LLM harnesses
+- "Much of the task difficulty is shared across instances and can be lifted from the model into the harness via tailored instructions, tools, and orchestration loops"
+- Experiment is to map agent failures to harness adaptation strategies
+  - and build a harness optimizer that automatically discovers effective adaptations from failure trajectories
+
+**Agent Failure Modes**
+- failures in agentic task outcomes come from one or more local failures in the trajectory
+  - e.g. a budget approval agent
+    - that approves invalid requests 
+      - may have selected the wrong tool at one step
+      - violated a policy instructino at another
+      - relied on an incorrect assumption
+      - etc.
+      
+    _Local failure modes_ organized by the capabilities they imply
+        - indexing failures by capability allows us to link local failures to underlying learned functions
+          - that may have broken down...
+            - and to the adaptations likely to address them...
+    
+    
+    1. *tool use* : tool abuse and invalid usage
+    
+    2. *knowledge*: without demonstrations
+       - the model relies on its pre-training/fine-tuning and interactions in the supplied environment
+
+    
+    3. *instruction-following*: model violates system or user instructions
+    
+    4. *long-context*: model fails to retrieve and use information from a long trajectory/horizon
+    
+    5. *planning*: model cannot decompose a task
+       - high-level goal into sub-goals
+       - choose an effective next action
+       - verify its plan after new observations
+    
+    _Harness adaptation strategies_ grouped by the harness component they modify
+        - context adaptations change what information is presented to the model
+        - tool adaptations change the actions available to the model
+        - agent loop adaptations change the control logic around the model inference
+        
+    1. *context adaptations*: shape the context a model acts on
+       - including system prompts, user prompts, tool descriptions, memory, and other observable files and db
+       a. *adding context*
+           - helps with _knowledge_ gaps w/ implicitness in instructions
+           - _planning_ receives explicitness
+           - _tool use_ receives more detailed tool descriptions and demonstrations
+           - _instruction-following_ is emphasized by reinforcing key constraints
+       b. *managing context*: adding context greatens the burden of context and complexity
+           - to prevent overwhelming SLMs common strategies are used
+             1. revealing context progressively
+             2. offloading contexts into external storage
+             3. compressing contexts with summaries
+             4. pruning irrelevant observations
+             5. separating contexts into distinct components (like multi agents)
+             
+    2. *tool adaptations*: reshape the action space an agent operates in
+       - MCP servers, CLI tools, executable scripts, agent skills
+       
+       a. *creating tools*: mitigates _tool use_ gap
+           - wraps recurring complex tool use patterns and sequences
+             - into simpler interfaces for easy support and stable tool use
+           - it assists _knowledge_ and _planning_ gaps
+             - by encoding domain information and plans into the tool creation
+           - enforces certain constraints programmatically to bolster _instruction-following_
+           - provides more compact tool observations over _long-context_
+       b. *manage tools*: tool selection
+           - tailoring a tool use schema
+             - we make tools more intuitive and easier to use
+             
+    3. *agent loop adaptations*: adapt the agent loop design to mitigate failures
+       - from a model's actions and accumulating context
+       
+       a. *instrumenting code*: mitigates the unreliablility of the agent loop
+           - adding deterministic checks that own stop conditions on the loop 
+             - e.g. before or after the tool call
+           - by enforcing some constraints programmatically we bolster _instruction-following_
+             - this is referred to as _symbolic guardrails_ to catch unsafe behaviors
+       b. *orchestrating agents*: beyond single-agent limitations
+           - helps for _long-context_ problems to have multiple agents
+       c. *trade-offs of harness adaptations*
+           - adding context is effective
+             - the more complex the harness can lead to more complex failures
+             - growing context complexity dampens context management and instruction-following
+           - managing context relieves model
+             - generalized context may lead to failures in exploration
+           - creating tools provide stable scaffolds
+             - but increase tool use failure
+           - orchestrating agents increase inference and agent management
+               
+             
+
+
+
+
+**Agent Adaptation Strategies**
 
 ### Auto Research
 
