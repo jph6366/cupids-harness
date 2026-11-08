@@ -167,6 +167,74 @@ The sixth property is:
 
 - [Natural-Language Agent Harnesses](https://arxiv.org/pdf/2603.25723)
 
+#### [Rethinking the Evaluation of Harness Evolution for Agents](https://arxiv.org/pdf/2607.12227)
+    - The goal is to make explicit whether performance gains reflect reusable harness improvement
+    - or test-time discovery over the evaluated tasks
+      
+    - Given a fixed agent policy, a task distribution, and a compute budget,
+      - each method is specified by what it updates and what feedback it observes
+    - We consider four methods: 
+    
+1. **parallel sampling**
+       - generates multiple trajectories in parallel from the policy using a fixed harness
+         - K trajectories expand the action space to improve likelihood of a correct trajectory
+           - relies on model self-selection to choose best candidate among sampled solutions
+           - or with (unit test cases) verifiable signals that are used to select the final response
+2. **sequential refinement**
+       - allocates the budget to depth
+         - each interaction that extends the task horizon
+           - builds on the last trajectory
+       - the model leverages prior reasoning
+         - and explores alternative solution paths to guide refinement in subsequent turns
+         
+       - sample the first trajetory based on the prompt
+         - we condition the next trajectory on the previous one
+         - letting the agent reflect on and revise its prior attempt
+           - using the same fixed harness
+
+
+3. **harness evolution**
+   - retains the iterative loop of sequential refinement 
+     - but allocate budget to the harness surrounding the policy
+       - rather than to tracjectories alone
+     - and optimize across a task distribution rather than fitting to one task
+     
+ - a batch of tasks is drawn and experience initialized with them is tored
+   - sampling _m_ rollouts per task under current harness
+     - each round contributes a piece of evidence
+ - a meta agent drives the search
+   - reads an observation of accumulated store and emits the next harness
+     - starting from a seed harness
+       - search optimizes the harness toward success on the task distribution, or on a held-out set
+   
+ - we select the harness in the store with the highest aggrregate outcome
+   - estimated on the task batch or a held-out set
+
+
+
+4. **harness scaling**
+
+    - a harness level of analogue of test-time scaling
+      - whereas harness evolution aims to improve a harness across a set of tasks and produce a reusable design
+        - harness scaling adapts the harness for a single evaluation instance by
+          - by allocating additional inference budget to harness revision
+
+    **"viewed as instance-guided harness adaptation, in contrast to dataset-guided harness evolution**
+
+
+![](harnessmethodframework.png)
+
+
+- Experiments on Terminal-Bench show that it fails to outperform test-time scaling baselines under a matched budget, and that its gains generalize poorly beyond the search tasks. 
+- Further experiments show that long-horizon games are a promising setting for automatic harness evolution
+  - as they are difficult enough,
+    - rely heavily on adaptation to out-of-distribution dynamics,
+      - and provide granular feedback by design. 
+      
+- These findings suggest that current evidence for automatic harness evolution
+  - should be interpreted with caution, 
+    - and highlight the need to identify the settings in which it is genuinely helpful
+
 
 ## Resources
 
@@ -890,7 +958,36 @@ production use.
 
 - [DS-STAR: A state-of-the-art versatile data science agent](https://research.google/blog/ds-star-a-state-of-the-art-versatile-data-science-agent/)
 - [Skill-based Agentic Evaluation for Real-time Data Science Tasks](https://arxiv.org/pdf/2609.16487)
-- [Harness Engineering Can Make Small Language Models Explore Like Large Language Models](https://openreview.net/forum?id=VHjhq6vui2)
+
+#### [Harness Engineering Can Make Small Language Models Explore Like Large Language Models](https://openreview.net/forum?id=VHjhq6vui2)
+
+  **Axum, a harness that gives on language model separate roles**
+    - an orchestrator plans and delegates
+      - workers execute the analysis and report back
+        - a goal-holding agent outside the execution context alone can declare the analysis complete
+        
+ *gaps in deciding the correct analytical path*
+    1. an agent can lose sight of the end goal
+    2. a model stops when it feels it has done sufficient work
+    3. a harness does not explore like a human analyst
+    
+   _does harness architecture change the degree to a model examines possibly analytical trajectories?_
+    yes, with a qualification. Axum covered much more of the human-analyst move space than the best same-model baseline, but that number includes all worker counts and the baselines stop at a smaller token budget. Coverage increases with the number of workers and then saturates after three, and the gain is stable in a union-of-k repeated-sampling control at matched token budgets. At a truly matched budget the difference is small and not significant, so we do not claim that the harness structure alone is better at equal compute 
+  _does a SLM with a deliberate harness outpeform a LLM with a plain baseline harness?_
+    the small model through Axum reached 51.9% of the human move space, above the 44.4% of the best harness on the near-frontier model. We report that as descriptive only, because the comparison changed the model and the harness together.
+    
+   *agents of fate architecture*
+   1. don't interfere with the model
+   2. accept one input
+   3. operate across all analysis types
+   4. make exploration the goal
+      
+   "*Moira* holds the goal from user request and `COMMANDMENTS.md` holding general anaylsis principles for all harnesses, and Moira makes principles for the dataset from it. She alone declares the analysis complete"
+
+   ...
+   
+
+
   
 #### Benchmarks
 
