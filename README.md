@@ -61,16 +61,22 @@ The five CUPID properties are:
 The sixth property is:
 
 - **self-similar**: looks the same at every scale
-    - **self-improving**
-        - 
     - **self-taught**
         - 
     - **self-modifying**
         - 
     - **self-evolving**
-        - 
+        - automatic harness evolution
+          - harness evolution
+            - shared evolving harness across tasks
+          - harness scaling
+            - task-specific evolving harness
     - **self-improving**
-        - 
+        - test-time scaling
+          - parallel sampling
+            - fixed harness; explore in width
+          - sequential refinement
+            - fixed harness; explore in depth
      - **self-replicating**
         - 
      - **self-aware**
@@ -128,6 +134,7 @@ The sixth property is:
        - the model provides intelligence; the harness provides peripherals, memory, and boundaries
     3. the runtime that couples an LLM to the world through a loop, tools, context management, safety controls, orchestration, and extension surfaces.
     4. the layer that wraps language model and turns it into an agent able to act on a repository
+    5. determines how a foundation model receives information, retrieves experience, and acts
 
 
 
@@ -166,6 +173,32 @@ The sixth property is:
 ### Harness Engineering
 
 - [Natural-Language Agent Harnesses](https://arxiv.org/pdf/2603.25723)
+
+#### [Harness Continual Learning: Continual Adaptation Beyond Model Parameters](https://arxiv.org/pdf/2608.19013)
+
+**Continual learning** studies how a system acquires capabilities from sequential experience
+    - while retaining previously learned behavior
+    - this process is realized by changing model parameters, representations, or architectural components
+      - this is established as *model-centric continual learning*
+      
+> Agent adaptation is therefore no longer confined to model state: harness state can accumulate experience and reshape future behavior. This makes the harness a new object of continual learning research
+
+> How can an agent continually improve its state outside the model while retaining behavior acquired eariler?
+
+**Harness continual learning (HCL)** in which the harness evolves around a frozen foundation model
+    - define the resulting loss of earlier behavior as *harness-level forgetting*
+    
+- conventional harness optimization typically searches for prompts, functions, or workflows
+  - that improve a current objective
+- HCL studies a sequence of deployed harnesses
+  - because harness components are coupled in execution,
+    - a memory update can change evidence retrieved for an earlier query,
+    - a skill revision can alter tool use,
+    - a routing edit can break a previously successful workflow
+      - this phenomenom of updates that help recent cases may cause failure with an unchanged foundation model
+        - is called *harness-level forgetting*
+            - extending the classical *stability-plasticity* problem from model state to harness state
+    
 
 #### [Rethinking the Evaluation of Harness Evolution for Agents](https://arxiv.org/pdf/2607.12227)
     - The goal is to make explicit whether performance gains reflect reusable harness improvement
@@ -249,6 +282,8 @@ The sixth property is:
 - [Multitask Learning](https://people.eecs.berkeley.edu/~russell/classes/cs294/f05/papers/caruana-1997.pdf)
 - [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
 - [Language Models are Few-Shot Learners](https://arxiv.org/pdf/2005.14165)
+- [Fine-tuned Language Models are Continual Learners](https://arxiv.org/pdf/2205.12393)
+
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/pdf/2402.03300)
 
 ### Frontier AI Model Evaluation and Threat Research
@@ -267,7 +302,7 @@ The sixth property is:
 
 ### Agent Development Patterns
 
-- [Agents with Constraints](https://developmentseed.org/blog/2026-10-16-agents-constraints/)
+#### [Agents with Constraints](https://developmentseed.org/blog/2026-10-16-agents-constraints/)
     - "Giving agents more freedom doesn't necessarily produce better results"
     - "Introduce constraints: limit the tools an agent can use, define how it returns information, or choose a smaller model for a specific task. These constraints can make agents more predictable and efficient"
     _Limit what agents can do_
@@ -318,7 +353,7 @@ The sixth property is:
 
 
 ### Agile Software Development & AI-Native Engineering
-
+    
 
 #### Coding Agents
 
