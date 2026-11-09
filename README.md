@@ -992,6 +992,7 @@ production use.
 - [DS-STAR: A state-of-the-art versatile data science agent](https://research.google/blog/ds-star-a-state-of-the-art-versatile-data-science-agent/)
 - [Skill-based Agentic Evaluation for Real-time Data Science Tasks](https://arxiv.org/pdf/2609.16487)
 
+
 #### [Harness Engineering Can Make Small Language Models Explore Like Large Language Models](https://openreview.net/forum?id=VHjhq6vui2)
 
   **Axum, a harness that gives on language model separate roles**
@@ -1040,5 +1041,42 @@ production use.
 - GeoAgentBench
 - GISAgentBench
 
+#### [Agentic AI in Remote Sensing: Foundations, Taxonomy, and Emerging Systems](https://arxiv.org/pdf/2601.01891)
 
-#### [SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?](https://arxiv.org/abs/2410.03859)
+- A shift towards *vision foundation models* (VFMs) trained on diverse datasets to learn general-purpose representations
+- *Vision transformers* (ViTs) facilitate this by applying self-attention to image patches
+- to mitigate annotation dependence, *vision language models* (VLMs) align image and text encoders to enable open-vocabulary detection and zero-shot segmentation
+- *Multimodal large language models (MLLMs) couple visual encoders with *large language models* (LLMs) to support complex reasoning
+
+  **Single-agent systems**
+  - a single controller
+    - to interpret user intent
+    - plan analysis or control steps
+    - calls tools or models
+    - synthesize outputs through a unified interface
+      - without explicit collaboration between agents
+     
+  **Multi-agent systems**
+  - consist of agents with distinct roles that explicitly isolate, communicate, and coordinate
+  - ideal for
+    - decomposed workflows
+    - hetergeneous expertise
+    - coordinate control of multiple assets
+   
+      
+**Tool integration and API orchestration**
+- Monolithic tool ecosystem
+- Domain-specialized planners
+- Memory and long-term coherence
+  - task-level context
+  - graph-structured workflow knowledge
+  - platform-level logs
+    - agents log intermediate results, tool calls, and plans
+   
+**Limitations of Current Agentic Remote Sensing Systems**
+- Limited geospatial grounding diverse on sensing domains
+- Tool use in agents is fragile with agents ignoring preconditions, repeat failing calls, or trigger inappropriate tools
+- Shallow context and flat logs of tools, also inconsistent reuse of intermediate results
+- Lack of a unified protocol that measures planning, quality, perception accuracy, and safety across remote sensing missions
+
+
