@@ -65,7 +65,7 @@ The sixth property is:
         - 
     - **self-taught**
         - 
-    - **self-modifyiong**
+    - **self-modifying**
         - 
     - **self-evolving**
         - 
@@ -440,10 +440,43 @@ Agents may be fast and relatively smart, but they are as subject as humans are t
 ### Agentic Systems, Agent Architecure, & Agent Harnessing
 
 - [Prime Agent: Self-improving RLM Harness](https://arxiv.org/pdf/2608.23552)
-- [Harness^2: Recursive Agent Harnessing for an Open World](https://arxiv.org/abs/2610.14224)
+
+  
 - [Why The Harness Matters More Than The Model | YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28)
 - [The Best AI Models Fail at Physics: Coding Harnesses are to Blame](https://juliahub.com/blog/why-the-best-ai-models-fail-at-physics)
 - [Why the Agent Harness Matters For Physical AI](https://juliahub.com/white-papers/why-the-agent-harness-matters-for-physical-ai)
+
+
+#### [Harness^2: Recursive Agent Harnessing for an Open World](https://arxiv.org/abs/2610.14224)
+
+*Recursive self-improvement* offers to automate the harness evolutions
+- Challenges:
+  1. open-world tasks are unseen during harness design phase and novel at test time
+    - leaving no ground-truth verifiers to reliably guide online harness edits
+  2. highly task-specific and fails to generalize novel scenarios
+
+ *Task-level recursion* refines the current task's harness
+ - using a contrastive *Propose-Probe-Compose* step
+   - that reliably guides edits without ground-truth verifiers
+   - and can be scaled further via parallel or sequential recursion
+     - *Harnessing-level recursion* extracts experiences from these edits
+     - to update a continual improvement harness
+       - enabling the agent to better adapt to future tasks
+      
+  > An LLM's agent effectiveness depends not only on it underlying model, but also on its harness: the prompts, memory, skills, tools, and orchestration through which the model performs tasks
+
+*Open-world harness evolution* allows systems to dynamically adapt to newly arriving tasks
+- Challenges:
+  1. tasks typically lack ground-truth labels or reliable verifiers
+    - safely using imperfect execution evidence to guide harness changes remains difficult
+  2. improving a harness for one task does not automatically improve how the next task is refined
+    - the improvement process itself must become a source of learning
+      - enabling the system to recursively upgrade its own refinement mechanism
+
+> Can recursive self-improvement improve both how current and future harness are improved?
+
+
+
 
 
 
