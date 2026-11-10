@@ -1076,6 +1076,38 @@ production use.
 - GeoAgentBench
 - GISAgentBench
 
+#### [OpenEarth-Agent: From Tool Calling to Tool Creation for Open-Environment Earth Observation](https://arxiv.org/html/2603.22148v1)
+
+> Rather than calling pre-defined tools, OpenEarth-Agent employs adaptive workflow planning and tool creation to generate specialized tools tailored to unseen data and tasks. This adaptability is bolstered by an open-ended integration of multi-stage tools and cross-domain knowledge bases, enabling robust execution in the entire EO pipeline across multiple application domains
+
+*closed nature of tool calling limits data and task generalization*
+
+*restricted operational scopes limit end-to-end cross-domain generalization*
+
+1. **Adaptive workflow planning and tool creation**
+   - real-time data exploration and task logic planning to structure data and contextualize tasks
+   - upon tool creation and task execution
+     - it leverages domain-specific geoscience knowledge for result verification
+       - and iteratively optimizes the synthesized tools
+   - confronted with diverse data and tasks
+     - agent synthesizes code-probing tools
+       - to perceive metadata and spatio-temporal-modal characteristics of multi-source data in real-time
+   - conditioned on data insights and task context
+     - agent structures the task execution into a DAG
+       
+2. **Open-ended tool and knowledge integration**
+   - incorporates tool and knowledge integration
+     - agent leverages these resources to enable dynamic planning and real-time tool synthesis
+       - adapting to heterogenous data and complex tasks
+   - integrates specialized functions and templates
+     - for multi-source data acquisition and preprocessing
+     - for multi-paradigm feature extraction
+     - for multi-dimensional geospatial analysis
+    
+  <img width="3468" height="2231" alt="image" src="https://github.com/user-attachments/assets/84d06ebe-9ef3-4799-975a-e08b8e872940" />
+- 
+
+
 #### [GeoMMBench and GeoMMAgent: Toward Expert-Level Multimodal Intelligence in Geoscience and Remote Sensing](https://arxiv.org/pdf/2604.08896)
 
 **GeoMMAgent** follows a *plan-execute-evaluate* paradigm comprising three stages
