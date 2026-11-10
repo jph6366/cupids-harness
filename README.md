@@ -1076,6 +1076,31 @@ production use.
 - GeoAgentBench
 - GISAgentBench
 
+#### [GISclaw: An Open-Source LLM-Powered Agent System for Full-Stack Geospatial Analysis](https://www.researchgate.net/profile/Han_Jinzhen/publication/403306746_GISclaw_An_Open-Source_LLM-Powered_Agent_System_for_Full-Stack_Geospatial_Analysis/links/69cf8480ac38122875660605/GISclaw-An-Open-Source-LLM-Powered-Agent-System-for-Full-Stack-Geospatial-Analysis.pdf)
+
+<img width="1487" height="655" alt="image" src="https://github.com/user-attachments/assets/45451824-420a-4ae2-93b7-7495e55044e6" />
+> GISClaw, an open-source agent system that integrates an LLM reasoning core with a persistent Python sandbox, a comprehensive suite of open-source GIS libraries, and a web-based interactive interface for full-stack geospatial analysis spanning vector, raster, and tabular data.
+
+
+<img width="790" height="553" alt="image" src="https://github.com/user-attachments/assets/8c541cd5-4109-4ac5-8a3d-5c1a1fc53b9e" />
+> GISClaw implements two pluggable agent architectures--a Single Agent ReAct loop and a Dual Agent Plan-Execute-Replan pipeline--and supports six heterogenous LLM backends...
+
+
+> Through three key engineering innovations--Schema Analysis bridging the task-data information gap, Domain Knowledge injection for domain-specific workflows, and an Error Memory mechanism for intelligent self-correction--GISClaw achieves up to 96% task success on *GEOANALYSTBENCH*
+
+1. **Schema Analysis** addresses a fundamental information gap between task descriptions and actual data schemas
+  - GIS datasets frequently use abbreviated or domain-specific column names that LMs cannot infer from task descriptions
+  - agent's first action is to inspect data and metadata before generating any analytical code
+
+2. **Package Constraint** prevent an agent from generating code from non-existing and uncurated dependencies
+3. **High-level workflow & domain-knowledge injection** supplies task-specific procedural knowledge beyond an LLM's parametric capabilties
+   - *what analysis to perform*
+   - *how to code it*
+   - GISClaw accepts a user-provided high-level workflow or domain knowledge as an optional input field
+     - and injects it directly into the agent prompt
+
+
+
 #### [OpenEarth-Agent: From Tool Calling to Tool Creation for Open-Environment Earth Observation](https://arxiv.org/html/2603.22148v1)
 
 > Rather than calling pre-defined tools, OpenEarth-Agent employs adaptive workflow planning and tool creation to generate specialized tools tailored to unseen data and tasks. This adaptability is bolstered by an open-ended integration of multi-stage tools and cross-domain knowledge bases, enabling robust execution in the entire EO pipeline across multiple application domains
