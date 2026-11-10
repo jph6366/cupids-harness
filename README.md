@@ -1076,6 +1076,42 @@ production use.
 - GeoAgentBench
 - GISAgentBench
 
+#### [GeoMMBench and GeoMMAgent: Toward Expert-Level Multimodal Intelligence in Geoscience and Remote Sensing](https://arxiv.org/pdf/2604.08896)
+
+**GeoMMAgent** follows a *plan-execute-evaluate* paradigm comprising three stages
+  1. Planning
+    a. unified coordinator uses input to formulate a (executable) plan
+      - specifiying subgoals
+      - required tools or agents
+      - scheduling strategies for execution order and dependencies
+  3. Multi-Agent Execution
+     a. coordinator dispatches subtasks (based on execution plan)
+     b. specialized agent(s) responsible for retrieval, perception, and reasoning
+     c. each agent operates with domain-specific tools and returns structured outputs
+       - e.g. object-detection, geospatial reasoning models
+     d. coordinator aggregates results into an interpretable, evidence-based response 
+  5. Self-Evaluation
+     a. reviews the reasoning trace and generated answer
+       - verifying consistency and correctness against the original plan
+         - if plan is invalidated then selective re-execution refinement is triggered
+        
+- **Specialized tool library and core capabilities** is defined as 3 core geospatial capabilities that reflect human expert cognition for geospatial analysis
+  1. *knowledge* handles the retrieval and synthesis of external information
+    - e.g. integrated multiple search engines (wikipedia, google, etc.) for general knowledge acquisition
+    - e.g. for multimodal retrieval to match collected image-text information with input image-query pair
+  2. *perception* tools include object detection, scene classification, and land use and land cover segmentation
+    - trained with supervised learning on domain datasets
+    - optimized for geospatial perception tasks
+  3. *reasoning* tools consist of multimodal large language models that generate contextual insights or intermediate reasoning steps from image-text pairs to support final answer generation
+
+
+<img width="1130" height="417" alt="image" src="https://github.com/user-attachments/assets/b794cd00-978e-4b5f-9eb4-de53dd48c2d5" />
+  - given image-query pair as input,
+    - the system dynamically decomposes complex problems into structured subgoals,
+      - assigns them to specialized agents,
+        - and integrates their outputs into a coherent final answer
+
+
 #### [Agentic AI in Remote Sensing: Foundations, Taxonomy, and Emerging Systems](https://arxiv.org/pdf/2601.01891)
 
 - A shift towards *vision foundation models* (VFMs) trained on diverse datasets to learn general-purpose representations
