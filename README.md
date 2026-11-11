@@ -1076,6 +1076,17 @@ production use.
 - GeoAgentBench
 - GISAgentBench
 
+
+#### [Towards intelligent geospatial data discovery: a knowledge graph-driven multi-agent framework powered by large language models](https://www.tandfonline.com/doi/full/10.1080/13658816.2026.2724505#abstract)
+
+
+#### [Spatial CoT: a spatial concept transformation guided LLM reasoning framework for complex geospatial question answering](https://www.tandfonline.com/doi/full/10.1080/13658816.2026.2696352#abstract
+
+
+#### [OGSAgent: an MCP-based multi-agent collaboration framework for intelligent GIServices](https://www.tandfonline.com/doi/full/10.1080/13658816.2026.2715051)
+
+
+
 #### [GISclaw: An Open-Source LLM-Powered Agent System for Full-Stack Geospatial Analysis](https://www.researchgate.net/profile/Han_Jinzhen/publication/403306746_GISclaw_An_Open-Source_LLM-Powered_Agent_System_for_Full-Stack_Geospatial_Analysis/links/69cf8480ac38122875660605/GISclaw-An-Open-Source-LLM-Powered-Agent-System-for-Full-Stack-Geospatial-Analysis.pdf)
 
 <img width="1487" height="655" alt="image" src="https://github.com/user-attachments/assets/45451824-420a-4ae2-93b7-7495e55044e6" />
