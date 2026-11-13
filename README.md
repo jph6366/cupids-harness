@@ -41,8 +41,11 @@ I will expand on each property in future articles so that this one does not get 
   - "With a sufficient number of users of an API, it does not matter what you promise in the contract:
     all observable behaviors of your system will be depended on by somebody."
 
-## systems development life cycle (SDLC)
+## software development model
+
 _James Martin's method of rapid development: In general, RAD approaches to software development put less emphasis on planning and more emphasis on an adaptive process. Prototypes are often used in addition to or sometimes even instead of design specifications_
+
+
 
 ## cupids for joyful coding and harnessing agents for the rest
 
